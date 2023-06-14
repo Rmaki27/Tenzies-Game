@@ -7,6 +7,8 @@ import Die from './Die'
 
 
 export default function App() {
+  const [dice, setDice] = useState(allNewDice())
+
   function allNewDice() {
     const dice = []
     for (let i=0; i<10; i++) {
@@ -16,21 +18,17 @@ export default function App() {
     return dice
   }
 
+  const diceElements = dice.map(currentValue => {
+      return (<Die key={currentValue} value={currentValue}/>)
+    })
+
+
 
   return (
     <>
       <main>
         <div className='dice'>
-          <Die value= "1" />
-          <Die value= "1" />
-          <Die value= "1" />
-          <Die value= "1" />
-          <Die value= "1" />
-          <Die value= "1" />
-          <Die value= "1" />
-          <Die value= "1" />
-          <Die value= "1" />
-          <Die value= "1" />
+          {diceElements}
         </div>
       </main>
     </>
