@@ -2,8 +2,20 @@ import { useState } from 'react'
 import './App.css'
 import Die from './Die'
 
-function App() {
-  const [count, setCount] = useState(0)
+
+
+
+
+export default function App() {
+  function allNewDice() {
+    const dice = []
+    for (let i=0; i<10; i++) {
+      const newNum = Math.floor(Math.random()*6)+1
+      dice.unshift(newNum)
+    }
+    return dice
+  }
+
 
   return (
     <>
@@ -24,5 +36,3 @@ function App() {
     </>
   )
 }
-
-export default App
