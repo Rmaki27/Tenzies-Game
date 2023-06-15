@@ -8,6 +8,23 @@ body {
   font-family: "Karla", sans-serif;
 }
 
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 40px;
+  margin: 0;
+}
+
+.instructions {
+  margin-bottom: 0;
+  padding: 0 3em;
+}
+
 main {
   margin: auto;
   display: flex;

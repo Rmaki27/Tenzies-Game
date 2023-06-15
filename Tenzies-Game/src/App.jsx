@@ -5,6 +5,7 @@ import {nanoid} from 'nanoid'
 
 export default function App() {
   const [dice, setDice] = useState(allNewDice())
+  const [tenzies, setTenzies] = useState(false)
 
   function generateNewDie() {
     return {
@@ -21,8 +22,6 @@ export default function App() {
     }
     return dice
   }
-
-
 
   function rollDice() {
     setDice(oldDice => oldDice.map( currentDie => {
@@ -55,6 +54,11 @@ function holdDice(id) {
   return (
     <>
       <main> 
+        <div className='title-container'>
+        <h1 className="title">Tenzies</h1>
+            <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+        </div>
+
         <div className='dice'>
           {diceElements}
         </div>
