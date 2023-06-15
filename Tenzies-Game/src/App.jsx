@@ -12,7 +12,7 @@ export default function App() {
       const newNum = Math.floor(Math.random()*6)+1
       const newDie = {
         value: newNum,
-        isHeld: false,
+        isHeld: true,
         id: nanoid(),
       }
       dice.unshift(newDie)
@@ -24,7 +24,12 @@ export default function App() {
     setDice(allNewDice())
   }
 
-  const diceElements = dice.map(currentDie => (<Die key={currentDie.id} value={currentDie.value} isHeld={currentDie.isHeld}/>))
+  const diceElements = dice.map(currentDie => (
+  <Die 
+  key={currentDie.id} 
+  value={currentDie.value} 
+  isHeld={currentDie.isHeld}
+  />))
   console.log(diceElements)
   return (
     <>

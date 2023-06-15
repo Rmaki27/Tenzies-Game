@@ -32,7 +32,10 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+}
+
+.held {
+  background-color: #59e391;
 }
 
 .dice {
