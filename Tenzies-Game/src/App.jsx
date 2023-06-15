@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Die from './Die'
-import {nanoid} from "nanoid"
+import {nanoid} from 'nanoid'
 
 export default function App() {
   const [dice, setDice] = useState(allNewDice())
@@ -26,11 +26,27 @@ export default function App() {
 
   const diceElements = dice.map(currentDie => (
   <Die 
-  key={currentDie.id} 
+  key={currentDie.id}
+  id={currentDie.id}
   value={currentDie.value} 
   isHeld={currentDie.isHeld}
+  holdDice={()=> holdDice(currentDie.id)}
+  backgroundColor="white"
   />))
-  console.log(diceElements)
+
+function holdDice(id) {
+  console.log(id)
+  // setDice(dice => {
+  //   dice.map((currentDie) => {
+  //     return {...currentDie, backgroundColor: currentDie.id === id ? "#59E391" : "white"}
+  //   })
+  // })
+
+
+  
+
+}
+
   return (
     <>
       <main> 
