@@ -9,7 +9,16 @@ export default function App() {
   const [tenzies, setTenzies] = useState(false)
 
   useEffect(() => {
-    console.log("Dice state changed")
+    const heldDice = dice.every(currentDie => 
+      currentDie.isHeld)
+
+      const sameValue = dice.every(currentDie => 
+        currentDie.value === dice[0].value)
+
+      if (heldDice && sameValue) {
+        setTenzies(true)
+        console.log("You won!")
+      }
   }, [dice])
 
   function generateNewDie() {
