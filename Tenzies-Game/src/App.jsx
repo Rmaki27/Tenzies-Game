@@ -6,22 +6,32 @@ import {nanoid} from 'nanoid'
 export default function App() {
   const [dice, setDice] = useState(allNewDice())
 
+  function generateNewDie() {
+    return {
+      value: Math.floor(Math.random()*6)+1,
+      isHeld: false,
+      id: nanoid(),
+    }
+  }
+
   function allNewDice() {
     const dice = []
     for (let i=0; i<10; i++) {
-      const newNum = Math.floor(Math.random()*6)+1
-      const newDie = {
-        value: newNum,
-        isHeld: false,
-        id: nanoid(),
-      }
-      dice.unshift(newDie)
+      dice.unshift(generateNewDie())
     }
     return dice
   }
 
+
+
   function rollDice() {
-    setDice(allNewDice())
+    setDice(oldDice => oldDice.map( currentDie => {
+      return currentDie.isHeld ? 
+      currentDie : 
+      generateNewDie()
+    }
+      
+    ))
   }
 
   const diceElements = dice.map(currentDie => (
